@@ -72,25 +72,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-
-      /* Center(
-        child: Text(
-          'H O M E',
-          style: TextStyle(
-            fontFamily: 'Times Rew Roman',
-            fontSize: 48,
-            fontWeight: FontWeight.bold,
-            color: Colors.blue,
-            shadows: [
-              Shadow(
-                color: Colors.grey.shade700,
-                offset: Offset(3, 5),
-                blurRadius: 4,
-              ),
-            ],
-          ),
-        ),
-      ), */
     );
   }
 
@@ -100,14 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
     if (randomuser.statusCode == 200) {
       final Map<String, dynamic> data = jsonDecode(randomuser.body);
-      log(data['results'][0]['gender']);
+         log(data['results'][0]['gender']);
       log(data['results'][0]['name']['title']);
       log(data['results'][0]['name']['first']);
       log(data['results'][0]['name']['last']);
-
+ 
       setState(() {
         randomuserData = data['results'];
-      }); 
+      });
     } else {
       controller1.text = 'Error ${randomuser.statusCode}';
       setState(() {});
