@@ -54,3 +54,15 @@ This project is a starting point for a Flutter application.
 </table>
 
 ## Reflection / Challenges
+
+<div align="justify">
+During this lab, I discovered how to implement asynchronous programming in Flutter to retrieve API data and utilize setState() to reflect changes to the UI. I also had the opportunity to explore various widgets including ListView.builder, Card, and ElevatedButton to format the layout. 
+
+The first obstacle I faced was managing the nested JSON structure from the API. I had to thoughtfully parse and manage variables in order to retrieve data from very deep nesting. Additionally, I encountered difficulties when managing the layout within a scrollable view while maintaining a clean and visually appealing structure. Utilizing Expanded inside a Column and properly applying SizedBox widgets helped achieve a balanced layout.
+
+Suggestions for Improvement:
+  - Add Error Handling: Dsiplay appropriate error messages if the network call fails (e.g., no internet or bad response code).
+  - Load More Users: Modify the API URL to fetch multiple users (e.g., https://randomuser.me/api/?results=10) and display them in a scrollable list.
+  - Improve UI/UX: Wrap long fields (like address) with TextOverflow.ellipsis or allow expansion on tap.
+  - Improve UI/UX: Add animations or shimmer effects for loading states.
+</div>
