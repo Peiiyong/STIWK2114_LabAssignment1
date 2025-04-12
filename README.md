@@ -1,3 +1,30 @@
+## LAB ASSIGNMENT 1 : Random User Info Viewer
+<table border="1">
+  <tr>
+    <td><strong>Name</strong></td>
+    <td>TAN PEI YONG</td>
+  </tr>
+  <tr>
+    <td><strong>Matric Number</strong></td>
+    <td>291688</td>
+  </tr>  
+  <tr>
+    <td><strong>Subject</strong></td>
+    <td>STIWK2114 / Mobile Programming</td>
+  </tr>  
+  <tr>
+    <td><strong>Semester</strong></td>
+    <td>A242</td>
+  </tr>  
+  <tr>
+    <td><strong>Lab Title</strong></td>
+    <td>Random User Info Viewer</td>
+  </tr>  
+  <tr>
+    <td><strong>Submission Date</strong></td>
+    <td>21/4/2025</td>
+  </tr>  
+</table>
 
 # s
 
