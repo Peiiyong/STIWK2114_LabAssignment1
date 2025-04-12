@@ -13,24 +13,26 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController controller1 = TextEditingController();
   List<dynamic> randomuserData = [];
+  Map<String, dynamic> infoData = {};
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text(
           'H O M E',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
-            color: Colors.blue,
+            color: Colors.yellow,
             shadows: [
-              Shadow(color: Colors.grey, offset: Offset(3, 3), blurRadius: 2),
+              Shadow(color: Colors.grey, offset: Offset(2, 2), blurRadius: 2),
             ],
           ),
         ),
         centerTitle: true,
-        shadowColor: Colors.grey.shade700,
+        shadowColor: Colors.white,
         elevation: 0,
       ),
 
@@ -38,31 +40,106 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: getInfo, child: Text('Click Me!')),
+            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.yellow, Colors.orange],
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ElevatedButton(
+                onPressed: getInfo,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  elevation: 0,
+                  padding: EdgeInsets.symmetric(vertical: 14, horizontal: 150),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: Text(
+                  'LOAD USER',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    shadows: [
+                      Shadow(
+                        color: Colors.grey,
+                        offset: Offset(2, 2),
+                        blurRadius: 2,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
 
+            const SizedBox(height: 20),
             Expanded(
               child:
                   randomuserData.isEmpty
-                      ? Text('No data')
+                      ? Text('-- No data --', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
                       : ListView.builder(
                         itemCount: randomuserData.length,
                         itemBuilder: (context, index) {
-                          String nameTitle =
-                              randomuserData[index]['name']['title'];
-                          String nameFirst =
-                              randomuserData[index]['name']['first'];
-                          String nameLast =
-                              randomuserData[index]['name']['last'];
-                          String gender = randomuserData[index]['gender'];
+                          var user = randomuserData[index];
+                          var name = user['name'];
+                          var location = user['location'];
+                          var coordinates = location['coordinates'];
+                          var timezone = location['timezone'];
+                          var login = user['login'];
+                          var dob = user['dob'];
+                          var registered = user['registered'];
 
                           return Card(
                             child: ListTile(
-                              title: Text(nameTitle + nameFirst + nameLast),
-                              subtitle: Text(gender),
                               leading: CircleAvatar(
                                 backgroundImage: NetworkImage(
                                   randomuserData[index]['picture']['large'],
                                 ),
+                              ),
+                              title: Text(
+                                "${name['title']} ${name['first']} ${name['last']}",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("Gender: ${user['gender']}"),
+                                  Text(
+                                    "Address: ${location['street']['number']}, ${location['street']['name']}, "
+                                    "${location['city']}, ${location['state']}, ${location['country']} - ${location['postcode']}",
+                                  ),
+                                  Text(
+                                    "Timezone: ${timezone['description']} (${timezone['offset']})",
+                                  ),
+                                  Text(
+                                    "Coordinates: Lat ${coordinates['latitude']}, Lng ${coordinates['longitude']}",
+                                  ),
+                                  Text("Email: ${user['email']}"),
+                                  Text("Login Username: ${login['username']}"),
+                                  Text("Login Password: ${login['password']}"),
+                                  Text("Login UUID: ${login['uuid']}"),
+                                  Text("Date of Birth: ${dob['date']}"),
+                                  Text("Age: ${dob['age']}"),
+                                  Text(
+                                    "Registered Date: ${registered['date']}",
+                                  ),
+                                  Text("Registered Age: ${registered['age']}"),
+                                  Text("Phone: ${user['phone']}"),
+                                  Text("Cell: ${user['cell']}"),
+                                  Text("ID Name: ${user['id']['name']}"),
+                                  Text("ID Value: ${user['id']['value']}"),
+                                  Text('NAT: ${user['nat']}'),
+                                ],
                               ),
                             ),
                           );
@@ -75,17 +152,26 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  // CALL API FUNCTION
   Future<void> getInfo() async {
     // call api
     var randomuser = await http.get(Uri.parse('https://randomuser.me/api/'));
 
     if (randomuser.statusCode == 200) {
       final Map<String, dynamic> data = jsonDecode(randomuser.body);
-         log(data['results'][0]['gender']);
-      log(data['results'][0]['name']['title']);
-      log(data['results'][0]['name']['first']);
-      log(data['results'][0]['name']['last']);
- 
+
+      final name = data['results'][0]['name'];
+      log("Name: ${name['title']} ${name['first']} ${name['last']}");
+
+      final location = data['results'][0]['location'];
+      log(
+        "Address: ${location['street']['number']} ${location['street']['name']}, "
+        "${location['city']}, ${location['state']}, ${location['country']} - ${location['postcode']}\n"
+        "Timezone: ${location['timezone']['description']} (Offset: ${location['timezone']['offset']})\n"
+        "Coordinates: Latitude ${location['coordinates']['latitude']}, "
+        "Longitude ${location['coordinates']['longitude']}",
+      );
+
       setState(() {
         randomuserData = data['results'];
       });
