@@ -60,7 +60,7 @@ During this lab, I discovered how to implement asynchronous programming in Flutt
 <br> <br>
 The first obstacle I faced was managing the nested JSON structure from the API. I had to thoughtfully parse and manage variables in order to retrieve data from very deep nesting. Additionally, I encountered difficulties when managing the layout within a scrollable view while maintaining a clean and visually appealing structure. Utilizing Expanded inside a Column and properly applying SizedBox widgets helped achieve a balanced layout.
 <br><<br>
-**Suggestions for Improvement:**
+<strong>Suggestions for Improvement:</strong>
   - Add Error Handling: Dsiplay appropriate error messages if the network call fails (e.g., no internet or bad response code).
   - Load More Users: Modify the API URL to fetch multiple users (e.g., https://randomuser.me/api/?results=10) and display them in a scrollable list.
   - Improve UI/UX: Wrap long fields (like address) with TextOverflow.ellipsis or allow expansion on tap.
