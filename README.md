@@ -1,4 +1,4 @@
-## LAB ASSIGNMENT 1 : Random User Info Viewer
+# LAB ASSIGNMENT 1 : Random User Info Viewer
 <table border="1">
   <tr>
     <td><strong>Name</strong></td>
@@ -26,7 +26,7 @@
   </tr>  
 </table>
 
-# App Description
+## App Description
 
 A new Flutter project.
 
