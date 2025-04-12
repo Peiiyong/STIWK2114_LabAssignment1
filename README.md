@@ -26,7 +26,7 @@
   </tr>  
 </table>
 
-# s
+# App Description
 
 A new Flutter project.
 
