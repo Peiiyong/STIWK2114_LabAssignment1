@@ -77,11 +77,26 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
+            Text(
+              controller1.text,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),
+            ),
+
             Expanded(
               child:
                   randomuserData.isEmpty
-                      ? Text('-- No data --', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
+                      ? Text(
+                        '-- No data --',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
                       : ListView.builder(
                         itemCount: randomuserData.length,
                         itemBuilder: (context, index) {
