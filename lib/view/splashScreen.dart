@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 10), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),
@@ -36,10 +36,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 fontFamily: 'Serif',
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
-                color: Colors.blue,
+                color: Colors.yellow,
                 shadows: [
                   Shadow(
-                    color: Colors.grey.shade700,
+                    color: Colors.orange,
                     offset: Offset(3, 3),
                     blurRadius: 4,
                   ),
