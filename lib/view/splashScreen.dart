@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 10), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),
@@ -28,11 +28,37 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/image1.png'),
+            Image.asset('assets/images/image1.png', scale: 2,),
 
-            Text('Random User Info Viewer'),
+            SizedBox(height: 20,),
+            Text('R U I V',
+              style: TextStyle(
+                fontFamily: 'Serif',
+                fontSize: 48,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+                shadows: [
+                  Shadow(
+                    color: Colors.grey.shade700,
+                    offset: Offset(3, 3),
+                    blurRadius: 4,
+                  ),
+                ],
+              ),
+            ),
 
-            CircularProgressIndicator(),
+            Text('--- Random User Info Viewer ---',
+              style: TextStyle(
+                fontFamily: 'Serif',
+                fontSize: 16,                
+              ),
+            ),
+
+            SizedBox(height: 20,),
+            CircularProgressIndicator(
+              backgroundColor: Colors.white,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+            ),
           ],
         ),
       ),
