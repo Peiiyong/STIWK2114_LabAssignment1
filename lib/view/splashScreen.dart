@@ -24,11 +24,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/image1.png', scale: 2,),
+            Image.asset('assets/images/image1.png', scale: 1,),
 
             SizedBox(height: 20,),
             Text('R U I V',
@@ -50,7 +52,8 @@ class _SplashScreenState extends State<SplashScreen> {
             Text('--- Random User Info Viewer ---',
               style: TextStyle(
                 fontFamily: 'Serif',
-                fontSize: 16,                
+                fontSize: 16,      
+                color: Colors.white          
               ),
             ),
 

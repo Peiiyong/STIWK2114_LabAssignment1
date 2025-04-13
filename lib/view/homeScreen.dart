@@ -18,6 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
+
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: const Text(
@@ -169,7 +171,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // CALL API FUNCTION
   Future<void> getInfo() async {
-    // call api
     var randomuser = await http.get(Uri.parse('https://randomuser.me/api/'));
 
     if (randomuser.statusCode == 200) {
