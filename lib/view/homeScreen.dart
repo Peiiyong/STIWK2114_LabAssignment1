@@ -188,6 +188,11 @@ class _HomeScreenState extends State<HomeScreen> {
         "Longitude ${location['coordinates']['longitude']}",
       );
 
+      final info = data['info'];
+      log(
+        "Info: ${info['seed']} ${info['results']} ${info['page']} ${info['version']}",
+      );
+
       setState(() {
         randomuserData = data['results'];
       });
