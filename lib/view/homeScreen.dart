@@ -13,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController controller1 = TextEditingController();
   List<dynamic> randomuserData = [];
-  Map<String, dynamic> infoData = {};
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 20),
+
+            // 'LOAD USER' button: it will call the getInfo method when pressed
             Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -80,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             SizedBox(height: 20),
+            // This widget is used to display error message if the API call fails (e.g., no internet connection)
             Text(
               controller1.text,
               style: TextStyle(
@@ -89,6 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
+            /* 
+               This section displays user data retrieved from the API.
+               If no data is available, it shows a "-- No data --" message.
+               Otherwise, it shows a scrollable list of user cards with detailed info.
+             */
             Expanded(
               child:
                   randomuserData.isEmpty
@@ -125,6 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontSize: 16,
                                 ),
                               ),
+                              
                               subtitle: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
@@ -158,6 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Text('NAT: ${user['nat']}'),
                                 ],
                               ),
+                            
                             ),
                           );
                         },
@@ -169,11 +178,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // CALL API FUNCTION
+  // getInfo method fetches random user data from the API and updates the UI.
   Future<void> getInfo() async {
+    // Send a GET request to the randomuser API
     var randomuser = await http.get(Uri.parse('https://randomuser.me/api/'));
 
     if (randomuser.statusCode == 200) {
+      // Decode the JSON response to access user data in a readable format
       final Map<String, dynamic> data = jsonDecode(randomuser.body);
 
       final name = data['results'][0]['name'];
@@ -193,10 +204,12 @@ class _HomeScreenState extends State<HomeScreen> {
         "Info: ${info['seed']} ${info['results']} ${info['page']} ${info['version']}",
       );
 
+      // Update the UI with the retrieved user data
       setState(() {
         randomuserData = data['results'];
       });
     } else {
+      // If request failed, display error message in the UI
       controller1.text = 'Error ${randomuser.statusCode}';
       setState(() {});
     }

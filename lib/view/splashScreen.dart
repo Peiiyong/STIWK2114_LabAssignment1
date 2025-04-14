@@ -13,6 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
+    //This method is used to navigate to HomeScreen after a 5-second delay.
     Future.delayed(Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
@@ -30,9 +31,11 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Logo
             Image.asset('assets/images/image1.png', scale: 1,),
 
             SizedBox(height: 20,),
+            // Title
             Text('R U I V',
               style: TextStyle(
                 fontFamily: 'Serif',
@@ -49,6 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
 
+            // Subtitle
             Text('--- Random User Info Viewer ---',
               style: TextStyle(
                 fontFamily: 'Serif',
@@ -58,6 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
 
             SizedBox(height: 20,),
+            // Progress Indicator
             CircularProgressIndicator(
               backgroundColor: Colors.orange,
               valueColor: AlwaysStoppedAnimation<Color>(Colors.yellow),
