@@ -61,8 +61,8 @@ The objective of this lab assignment is to build a Flutter mobile application th
     <tr>
     <td><img src="https://github.com/user-attachments/assets/4fb7b7ee-47ed-4af3-a7db-7566f440e063" width="180" height="350"></td>
     <td><img src="https://github.com/user-attachments/assets/7c275968-641b-45ce-9427-03ae17015b90" width="180" height="350"></td>
-    <td><img src="https://github.com/user-attachments/assets/08740902-257f-4be1-a963-528ffc7440d9" width="180" height="350"></td>
-    <td><img src="https://github.com/user-attachments/assets/2bbc52e7-6513-40c8-b5e9-f783561435cd" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/3112bf58-b35a-4963-8652-d7229de2dd3d" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/ffcbaf0b-3666-46da-bd25-f794cc457214" width="180" height="350"></td>
   </tr>
 </table>
 
