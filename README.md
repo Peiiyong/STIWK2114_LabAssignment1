@@ -34,22 +34,35 @@ The objective of this lab assignment is to build a Flutter mobile application th
 
 ## Implementation
 
-This project is a starting point for a Flutter application.
+**Splash Screen and Transition Logic**
+  - The splash screen (SplashScreen) shows an image, app title ("R U I V"), and a loading animation (CircularProgressIndicator).
+  - After 5 seconds, it automatically navigates to the HomeScreen using Navigator.pushReplacement.
+
+**Widgets Used in Main Screen**
+  - Text: Displays labels and user information.
+  - Image: Displays the logo and user's profile picture from the API.
+  - Container: Used to style the “LOAD USER” button with gradient.
+  - ElevatedButton: Used to trigger the API call.
+  - ListView.builder: Dynamically lists out each random user's data in a scrollable view.
+  - Card and ListTile: Present individual user data neatly with a CircleAvatar.
+
+**HTTP GET Request Integration**
+  - The app uses the http package to send a GET request to https://randomuser.me/api/.
+  - JSON data is parsed and stored in a list (randomuserData), then used to update the UI.
+  - The data includes name, gender, location, email, login info, DOB, phone number, and nationality.
+
+**Button to Refresh User Data**
+  - The “LOAD USER” button triggers the getInfo() function.
+  - Each time the button is pressed, a new random user is fetched and displayed.
+
 
 ## Screenshots
 <table>
     <tr>
-    <td><img src="https://github.com/user-attachments/assets/c6479b8c-adf2-4acc-a1d7-8ea0aad26650" width="180" height="350"></td>
-    <td><img src="https://github.com/user-attachments/assets/f6a55878-fa59-4c4d-ad64-51ca53710901" width="180" height="350"></td>
-    <td><img src="https://github.com/user-attachments/assets/a61c0f6a-c68f-4d32-ad38-48eb195a5eb3" width="180" height="350"></td>
-    <td><img src="https://github.com/user-attachments/assets/2bbc52e7-6513-40c8-b5e9-f783561435cd" width="180" height="350"></td>
-        </tr>
-</table>
-<table>
-    <tr>
-    <td><img src="" width="180" height="350"></td>
-    <td><img src="" width="180" height="350"></td>
-    <td><img src="" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/4fb7b7ee-47ed-4af3-a7db-7566f440e063" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/7c275968-641b-45ce-9427-03ae17015b90" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/3112bf58-b35a-4963-8652-d7229de2dd3d" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/ffcbaf0b-3666-46da-bd25-f794cc457214" width="180" height="350"></td>
   </tr>
 </table>
 
@@ -57,13 +70,9 @@ This project is a starting point for a Flutter application.
 
 <div align="justify">
 During this lab, I discovered how to implement asynchronous programming in Flutter to retrieve API data and utilize setState() to reflect changes to the UI. I also had the opportunity to explore various widgets including ListView.builder, Card, and ElevatedButton to format the layout.
-
-<br>
-
+<br> <br>
 The first obstacle I faced was managing the nested JSON structure from the API. I had to thoughtfully parse and manage variables in order to retrieve data from very deep nesting. Additionally, I encountered difficulties when managing the layout within a scrollable view while maintaining a clean and visually appealing structure. Utilizing Expanded inside a Column and properly applying SizedBox widgets helped achieve a balanced layout.
-
-<br>
-
+<br>  <br>
 <b>Suggestions for Improvement:</b>
 <ul>
   <li>Add Error Handling: Display appropriate error messages if the network call fails (e.g., no internet or bad response code).</li>
