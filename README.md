@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/4359bfd4-2caf-4268-ba38-c8716d5c2cdc)# LAB ASSIGNMENT 1 : Random User Info Viewer
+# LAB ASSIGNMENT 1 : Random User Info Viewer
 <table border="1">
   <tr>
     <td><strong>Name</strong></td>
