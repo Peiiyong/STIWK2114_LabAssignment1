@@ -1,4 +1,4 @@
-# LAB ASSIGNMENT 1 : Random User Info Viewer
+![image](https://github.com/user-attachments/assets/4359bfd4-2caf-4268-ba38-c8716d5c2cdc)# LAB ASSIGNMENT 1 : Random User Info Viewer
 <table border="1">
   <tr>
     <td><strong>Name</strong></td>
@@ -39,17 +39,10 @@ This project is a starting point for a Flutter application.
 ## Screenshots
 <table>
     <tr>
-    <td><img src="https://github.com/user-attachments/assets/c6479b8c-adf2-4acc-a1d7-8ea0aad26650" width="180" height="350"></td>
-    <td><img src="https://github.com/user-attachments/assets/f6a55878-fa59-4c4d-ad64-51ca53710901" width="180" height="350"></td>
-    <td><img src="https://github.com/user-attachments/assets/a61c0f6a-c68f-4d32-ad38-48eb195a5eb3" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/4fb7b7ee-47ed-4af3-a7db-7566f440e063" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/7c275968-641b-45ce-9427-03ae17015b90" width="180" height="350"></td>
+    <td><img src="https://github.com/user-attachments/assets/08740902-257f-4be1-a963-528ffc7440d9" width="180" height="350"></td>
     <td><img src="https://github.com/user-attachments/assets/2bbc52e7-6513-40c8-b5e9-f783561435cd" width="180" height="350"></td>
-        </tr>
-</table>
-<table>
-    <tr>
-    <td><img src="" width="180" height="350"></td>
-    <td><img src="" width="180" height="350"></td>
-    <td><img src="" width="180" height="350"></td>
   </tr>
 </table>
 
@@ -62,8 +55,8 @@ During this lab, I discovered how to implement asynchronous programming in Flutt
 
 The first obstacle I faced was managing the nested JSON structure from the API. I had to thoughtfully parse and manage variables in order to retrieve data from very deep nesting. Additionally, I encountered difficulties when managing the layout within a scrollable view while maintaining a clean and visually appealing structure. Utilizing Expanded inside a Column and properly applying SizedBox widgets helped achieve a balanced layout.
 
-<br>
-
+<br> <br>
+ 
 <b>Suggestions for Improvement:</b>
 <ul>
   <li>Add Error Handling: Display appropriate error messages if the network call fails (e.g., no internet or bad response code).</li>
